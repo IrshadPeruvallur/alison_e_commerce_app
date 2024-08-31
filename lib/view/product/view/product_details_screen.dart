@@ -3,9 +3,6 @@ import 'package:alison_ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  final String? productId;
-  final String? slug;
-  final String? code;
   final String? image;
   final String? name;
   final String? oldPrice;
@@ -15,9 +12,6 @@ class ProductDetailsPage extends StatelessWidget {
 
   const ProductDetailsPage({
     super.key,
-    this.productId,
-    this.slug,
-    this.code,
     this.image,
     this.name,
     this.oldPrice,
@@ -35,14 +29,12 @@ class ProductDetailsPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Product Image
           SizedBox(
             height: 300,
             width: double.infinity,
             child: image != null && image!.isNotEmpty
-                ? Image.network(
-                    'https://example.com/$image') // Replace with your base URL
-                : const Placeholder(), // Placeholder if image URL is empty
+                ? Image.network('https://example.com/$image')
+                : const Placeholder(),
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -91,7 +83,6 @@ class ProductDetailsPage extends StatelessWidget {
               ),
             ),
           ),
-          // Bottom Bar
           Container(
             padding: const EdgeInsets.all(16.0),
             color: whiteColor,
